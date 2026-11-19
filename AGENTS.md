@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+<!-- AGENT-MEMORY:BEGIN -->
+- All portfolio content (profile, skills, projects, education, achievements) lives in `src/lib/site.ts`; pages render from it — edit data there, not in routes.
+- Each nav section is its own route under `src/routes/`; shared header/footer are mounted in `__root.tsx`.
+- Contact form validates with zod (`src/lib/contact-form.ts`) and opens a pre-filled mailto — no backend sends mail.
+- Resume PDF is served statically from `public/resume.pdf`.
+<!-- AGENT-MEMORY:END -->
