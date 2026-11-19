@@ -40,7 +40,9 @@ jobs:
       - name: Prepare GitHub Pages artifact
         run: |
           set -euo pipefail
-          if [ -d dist/client ]; then
+          if [ -d .output/public ]; then
+            SITE_DIR=".output/public"
+          elif [ -d dist/client ]; then
             SITE_DIR="dist/client"
           elif [ -d dist ]; then
             SITE_DIR="dist"
