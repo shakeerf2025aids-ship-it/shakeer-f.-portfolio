@@ -25,19 +25,21 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
 
       - name: Install dependencies
-        run: npm ci
+        run: bun install --frozen-lockfile
 
       - name: Build static portfolio
-        run: npm run build
+        run: bun run build
         env:
           GITHUB_PAGES: "true"
 
       - name: Prepare GitHub Pages artifact
         run: |
-          set -e
+          set -euo pipefail
           if [ -d dist/client ]; then
             SITE_DIR="dist/client"
           elif [ -d dist ]; then
@@ -48,16 +50,14 @@ jobs:
           fi
 
           touch "$SITE_DIR/.nojekyll"
-
-          # Keep client-side fallback for routes if a static route isn't found.
           if [ -f "$SITE_DIR/index.html" ]; then
             cp "$SITE_DIR/index.html" "$SITE_DIR/404.html"
           fi
 
-          echo "Publishing directory: $SITE_DIR"
-          ls -la "$SITE_DIR"
           mkdir -p _site
           cp -R "$SITE_DIR"/. _site/
+          echo "Built site files:"
+          find _site -maxdepth 3 -type f | sort | head -200
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
