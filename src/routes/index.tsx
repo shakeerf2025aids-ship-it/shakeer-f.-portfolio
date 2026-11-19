@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const portrait = `${import.meta.env.BASE_URL}images/shakeer-portrait.jpg`;
+const portrait = "https://raw.githubusercontent.com/shakeerf2025aids-ship-it/shakeer-f.-portfolio/main/public/images/shakeer-portrait.jpg";
 
 function Hero() {
   const reduce = useReducedMotion();
