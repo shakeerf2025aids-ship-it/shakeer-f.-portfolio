@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Download, Mail } from "lucide-react";
-import portrait from "@/assets/shakeer-portrait.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { CtaBand } from "@/components/site/CtaBand";
 import { ProjectCard } from "@/components/site/ProjectCard";
@@ -33,6 +32,8 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const portrait = "/images/shakeer-portrait.jpg";
+
 function Hero() {
   const reduce = useReducedMotion();
   const item = (delay: number) => ({
@@ -51,7 +52,7 @@ function Hero() {
         transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
       >
         <img
-          src={portrait.url}
+          src={portrait}
           alt="Shakeer F. in a black suit, framed by a glowing orange ring"
           className="h-full w-full object-cover object-[22%_center] lg:object-left"
           fetchPriority="high"
