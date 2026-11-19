@@ -9,6 +9,7 @@ import { ResumeActions } from "@/components/site/ResumeActions";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { SocialLinks } from "@/components/site/SocialLinks";
 import resumePreview from "@/assets/shakeer-resume-preview.png.asset.json";
+import portrait from "@/assets/shakeer-portrait.png.asset.json";
 import { highlightStats, profile, projects, RESUME_PATH, skillGroups } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
@@ -32,7 +33,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const portrait = "https://raw.githubusercontent.com/shakeerf2025aids-ship-it/shakeer-f.-portfolio/main/public/images/shakeer-portrait.jpg";
+const portraitSrc = portrait.url;
 
 function Hero() {
   const reduce = useReducedMotion();
@@ -52,9 +53,9 @@ function Hero() {
         transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
       >
         <img
-          src={portrait}
+          src={portraitSrc}
           alt="Shakeer F. in a black suit, framed by a glowing orange ring"
-          className="h-full w-full object-cover object-[22%_center] lg:object-left"
+          className="h-full w-full object-cover object-[22%_center] lg:object-contain lg:object-left"
           fetchPriority="high"
         />
         <div className="hero-fade-y absolute inset-0 lg:hidden" />

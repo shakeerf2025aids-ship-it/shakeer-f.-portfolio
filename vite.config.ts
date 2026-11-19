@@ -1,6 +1,6 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-const isGitHubPages = process.env.GITHUB_PAGES === "true";
+const isGitHubPages = process.env["GITHUB_PAGES"] === "true";
 const pagesBasePath = "/shakeer-f.-portfolio";
 
 export default defineConfig({
