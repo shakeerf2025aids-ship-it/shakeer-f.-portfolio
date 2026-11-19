@@ -46,7 +46,7 @@ function Hero() {
     <section className="relative isolate min-h-[100svh] overflow-hidden">
       {/* Portrait — original photograph, untouched, anchored left */}
       <motion.div
-        className="absolute inset-x-0 top-0 -z-10 h-[62svh] lg:inset-0 lg:h-full"
+        className="absolute inset-x-0 top-0 z-0 h-[62svh] lg:inset-0 lg:h-full"
         initial={reduce ? false : { opacity: 0, scale: 1.04 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
@@ -63,10 +63,10 @@ function Hero() {
       </motion.div>
 
       {/* Ambient lighting */}
-      <div className="ambient-glow animate-float-glow absolute top-[8%] left-[4%] -z-10 h-[38rem] w-[38rem] opacity-60 mix-blend-screen" />
-      <div className="ambient-glow absolute right-[-10%] bottom-[-20%] -z-10 h-[30rem] w-[40rem] opacity-50" />
+      <div className="ambient-glow animate-float-glow absolute top-[8%] left-[4%] z-[1] h-[38rem] w-[38rem] opacity-60 mix-blend-screen" />
+      <div className="ambient-glow absolute right-[-10%] bottom-[-20%] z-[1] h-[30rem] w-[40rem] opacity-50" />
 
-      <div className="mx-auto grid min-h-[100svh] max-w-7xl items-end px-5 pt-[50svh] pb-16 lg:grid-cols-2 lg:items-center lg:px-10 lg:pt-28 lg:pb-20">
+      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-7xl items-end px-5 pt-[50svh] pb-16 lg:grid-cols-2 lg:items-center lg:px-10 lg:pt-28 lg:pb-20">
         <div className="hidden lg:block" />
         <div className="relative lg:pl-6 xl:pl-12">
           <motion.p {...item(0.2)} className="eyebrow mb-6 flex items-center gap-3">
