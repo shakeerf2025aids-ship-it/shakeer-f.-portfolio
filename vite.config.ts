@@ -19,7 +19,8 @@ export default defineConfig({
       ? {
           prerender: {
             enabled: true,
-            crawlLinks: true,
+            // Every page is listed below; disable crawling so PDFs and images are not treated as HTML routes.
+            crawlLinks: false,
             autoSubfolderIndex: true,
             failOnError: true,
             concurrency: 4,
