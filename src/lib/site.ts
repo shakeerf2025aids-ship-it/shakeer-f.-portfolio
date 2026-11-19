@@ -22,7 +22,7 @@ export const contact = {
 };
 
 /** Resume PDF served from public/resume.pdf. */
-export const RESUME_PATH = "/resume.pdf";
+export const RESUME_PATH = `${import.meta.env.BASE_URL}resume.pdf`;
 
 export const navItems = [
   { to: "/", label: "Home" },
